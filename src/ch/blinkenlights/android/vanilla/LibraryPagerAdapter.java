@@ -352,9 +352,11 @@ public class LibraryPagerAdapter
 			view.setTag(type);
 			if (header != null) {
 				TextView headerText = (TextView)header.findViewById(R.id.text);
-				headerText.setText(mHeaderText);
-				header.setTag(new ViewHolder()); // behave like a normal library row
-				view.addHeaderView(header);
+				if (headerText != null) {
+					headerText.setText(mHeaderText);
+					header.setTag(new ViewHolder()); // behave like a normal library row
+					view.addHeaderView(header);
+				}
 			}
 			view.setAdapter(adapter);
 			if (type != MediaUtils.TYPE_FILE)
